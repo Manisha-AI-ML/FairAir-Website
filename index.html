@@ -1,32 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FairAir - Welcome</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: linear-gradient(to right, #004080, #0073e6); color: white; margin: 0; padding: 0; text-align: center; }
-        header { padding: 50px 20px; }
-        header h1 { font-size: 3em; margin-bottom: 10px; }
-        header p { font-size: 1.2em; max-width: 600px; margin: 0 auto; }
-        nav { margin: 30px 0; }
-        nav a { text-decoration: none; background: white; color: #004080; padding: 12px 25px; border-radius: 6px; font-weight: bold; margin: 10px; display: inline-block; transition: 0.3s; }
-        nav a:hover { background: #ffcc00; color: #004080; }
-        footer { background: #00264d; padding: 15px; position: fixed; bottom: 0; width: 100%; color: #ddd; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FairAir - Fly Smarter</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Optional: Google Fonts and Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Welcome to FairAir</h1>
-        <p>Your trusted budget airline for simple, secure, and seamless flight bookings.</p>
-    </header>
-
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">FairAir ✈️</div>
     <nav>
-        <a href="servicepage.html">Services</a>
+      <ul class="nav-links">
+        <li><a href="#">Flights</a></li>
+        <li><a href="#">Check-in</a></li>
+        <li><a href="#">Manage Bookings</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Admin Login</a></li>
+      </ul>
     </nav>
+    <a href="#" class="login-btn">Login</a>
+  </header>
 
-    <footer>
-        <p>&copy; 2025 FairAir. All rights reserved.</p>
-    </footer>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Fly Smarter with FairAir</h1>
+      <p>Real-time booking, intelligent pricing, and effortless support.</p>
+      <div class="cta-buttons">
+        <a href="#" class="btn">Search for Flights</a>
+        <a href="#" class="btn btn-secondary">Check In</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose FairAir -->
+  <section class="features">
+    <h2>Why Choose FairAir?</h2>
+    <div class="feature-grid">
+      <div class="feature-item">✅ Real-time Fare Updates</div>
+      <div class="feature-item">🔐 Secure Booking</div>
+      <div class="feature-item">📱 Mobile-Optimized</div>
+      <div class="feature-item">🤖 AI-powered Support</div>
+      <div class="feature-item">🛠️ Admin Dashboard</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 FairAir. All rights reserved.</p>
+  </footer>
 </body>
 </html>
