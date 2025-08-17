@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FairAir - Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 30px;
+        }
+        .service-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            cursor: pointer; /* Make clickable */
+            transition: transform 0.2s;
+        }
+        .service-section:hover {
+            transform: scale(1.02);
+        }
+        h2 {
+            color: #004080;
+            margin-top: 0;
+        }
+        p {
+            margin-bottom: 0;
+        }
+        footer {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        /* Toast styles */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 15px;
+            position: fixed;
+            z-index: 100;
+            left: 50%;
+            bottom: 30px;
+            font-size: 14px;
+        }
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2s;
+        }
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FairAir - Services</h1>
+    </header>
+
+    <main>
+        <div class="service-section" data-service="User Registration and Login">
+            <h2>User Registration and Login</h2>
+            <p>Allows users to securely register, log in, and manage their travel profile.</p>
+        </div>
+
+        <div class="service-section" data-service="Flight Search">
+            <h2>Flight Search</h2>
+            <p>Search for available flights using source, destination, and travel dates.</p>
+        </div>
+
+        <div class="service-section" data-service="Flight Booking">
+            <h2>Flight Booking</h2>
+            <p>Book tickets after flight selection by entering required travel details.</p>
+        </div>
+
+        <div class="service-section" data-service="Payment Integration">
+            <h2>Payment Integration</h2>
+            <p>Secure checkout experience using a variety of payment methods.</p>
+        </div>
+
+        <div class="service-section" data-service="View and Manage Bookings">
+            <h2>View and Manage Bookings</h2>
+            <p>Access and modify booking details from the dashboard.</p>
+        </div>
+
+        <div class="service-section" data-service="Admin Panel">
+            <h2>Admin Panel</h2>
+            <p>Admin-level control panel for managing flights and monitoring systems.</p>
+        </div>
+    </main>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+    <footer>
+        <p>&copy; 2025 FairAir. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const serviceSections = document.querySelectorAll('.service-section');
+        const toast = document.getElementById('toast');
+
+        serviceSections.forEach(section => {
+            section.addEventListener('click', () => {
+                const serviceName = section.dataset.service;
+                toast.innerText = serviceName + " - ✈️ This feature is still taxiing on the runway.!";
+                toast.className = "show";
+                setTimeout(() => {
+                    toast.className = toast.className.replace("show", "");
+                }, 2500);
+            });
+        });
+    </script>
+</body>
+</html>
