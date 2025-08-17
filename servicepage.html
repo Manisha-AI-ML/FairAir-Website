@@ -26,7 +26,7 @@
             padding: 20px;
             margin-bottom: 25px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            cursor: pointer; /* Make clickable */
+            cursor: pointer;
             transition: transform 0.2s;
         }
         .service-section:hover {
@@ -38,6 +38,15 @@
         }
         p {
             margin-bottom: 0;
+        }
+        .service-icon {
+            margin-left: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .service-section.active .service-icon {
+            opacity: 1;
+            transform: translateY(-5px);
         }
         footer {
             background-color: #004080;
@@ -77,32 +86,32 @@
 
     <main>
         <div class="service-section" data-service="User Registration and Login">
-            <h2>User Registration and Login</h2>
+            <h2>User Registration and Login <span class="service-icon">👤</span></h2>
             <p>Allows users to securely register, log in, and manage their travel profile.</p>
         </div>
 
         <div class="service-section" data-service="Flight Search">
-            <h2>Flight Search</h2>
+            <h2>Flight Search <span class="service-icon">🔍</span></h2>
             <p>Search for available flights using source, destination, and travel dates.</p>
         </div>
 
         <div class="service-section" data-service="Flight Booking">
-            <h2>Flight Booking</h2>
+            <h2>Flight Booking <span class="service-icon">🛫</span></h2>
             <p>Book tickets after flight selection by entering required travel details.</p>
         </div>
 
         <div class="service-section" data-service="Payment Integration">
-            <h2>Payment Integration</h2>
+            <h2>Payment Integration <span class="service-icon">💳</span></h2>
             <p>Secure checkout experience using a variety of payment methods.</p>
         </div>
 
         <div class="service-section" data-service="View and Manage Bookings">
-            <h2>View and Manage Bookings</h2>
+            <h2>View and Manage Bookings <span class="service-icon">📋</span></h2>
             <p>Access and modify booking details from the dashboard.</p>
         </div>
 
         <div class="service-section" data-service="Admin Panel">
-            <h2>Admin Panel</h2>
+            <h2>Admin Panel <span class="service-icon">🛠️</span></h2>
             <p>Admin-level control panel for managing flights and monitoring systems.</p>
         </div>
     </main>
@@ -121,11 +130,19 @@
         serviceSections.forEach(section => {
             section.addEventListener('click', () => {
                 const serviceName = section.dataset.service;
-                toast.innerText = serviceName + " - ✈️ This feature is still taxiing on the runway.!";
+
+                // Show toast
+                toast.innerText = serviceName + " - ✈️ This feature is still taxiing on the runway!";
                 toast.className = "show";
                 setTimeout(() => {
                     toast.className = toast.className.replace("show", "");
                 }, 2500);
+
+                // Show icon briefly
+                section.classList.add('active');
+                setTimeout(() => {
+                    section.classList.remove('active');
+                }, 800);
             });
         });
     </script>
